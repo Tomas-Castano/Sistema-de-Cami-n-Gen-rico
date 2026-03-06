@@ -55,8 +55,6 @@ public class Main {
         System.out.println("\n\n💰 DEMO 3: TELEVISOR MÁS CARO (Comparable por precio)");
         System.out.println("═".repeat(70));
 
-        // ✅ CORRECCIÓN: ya no hace falta el type witness .<Televisor>
-        // porque T está acotado en la clase y el compilador lo infiere.
         Televisor tvMasCaro = camionTVs.obtenerMayor();
 
         if (tvMasCaro != null) {
