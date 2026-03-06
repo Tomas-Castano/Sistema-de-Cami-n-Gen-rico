@@ -1,6 +1,6 @@
 package org.modelo.dominio;
 
-public class Televisor extends Electrodomestico implements Comparable<Televisor> {
+public class Televisor extends Electrodomestico {
     private int pulgadas;
     private String resolucion;
     private boolean esSmart;
@@ -28,9 +28,11 @@ public class Televisor extends Electrodomestico implements Comparable<Televisor>
     
     //Comparable por precio
     @Override
-    public int compareTo(Televisor otro) {
-        // Comparar por precio descendente (el más caro es "mayor")
-        return Double.compare(this.precio, otro.precio);
+    public int compareTo(Electrodomestico otro) {
+        if (otro instanceof Televisor otroTv) {
+            return Double.compare(this.precio, otroTv.getPrecio());
+    }
+        return super.compareTo(otro);
     }
     
     @Override

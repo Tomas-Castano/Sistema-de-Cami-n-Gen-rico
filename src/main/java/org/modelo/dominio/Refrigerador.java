@@ -1,6 +1,6 @@
 package org.modelo.dominio;
 
-public class Refrigerador extends Electrodomestico implements Comparable<Refrigerador> {
+public class Refrigerador extends Electrodomestico{
     private int capacidadLitros;
     private int numeroPuertas;
     private boolean tieneDispensador;
@@ -28,8 +28,11 @@ public class Refrigerador extends Electrodomestico implements Comparable<Refrige
     
     //Comparable por capacidad en litros
     @Override
-    public int compareTo(Refrigerador otro) {
-        return Integer.compare(this.capacidadLitros, otro.capacidadLitros);
+    public int compareTo(Electrodomestico otro) {
+        if (otro instanceof Refrigerador otroRefri) {
+            return Integer.compare(this.capacidadLitros, otroRefri.capacidadLitros);
+    }
+        return super.compareTo(otro);
     }
     
     @Override
